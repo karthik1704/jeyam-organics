@@ -1,0 +1,36 @@
+services:
+  web:
+    image: odoo:17
+    depends_on:
+      - db1
+    ports:
+      - "8069:8069"
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+    environment:
+      - HOST=db1
+      - USER=odoo
+      - PASSWORD=odoo
+  db1:
+    image: postgres:17
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin-container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: karthikthee7@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 12345678
+    ports:
+      - "8080:80"
+    depends_on:
+      - db1
+
+
+volumes:
+  odoo-web-data:
+  odoo-db-data:

@@ -1,0 +1,4 @@
+master_password=vxb8-4d6z-8vys
+db_name=jeyam
+email=karthikthee7@gmail.com
+password=12345678
