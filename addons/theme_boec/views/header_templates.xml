@@ -41,7 +41,7 @@
                                         <div class="currency">
                                             <t t-call="website_sale.pricelist_list">
                                                 <t t-set="_classes"
-                                                   t-valuef="ml-2"/>
+                                                   t-value="ml-2"/>
                                             </t>
                                         </div>
                                     </div>

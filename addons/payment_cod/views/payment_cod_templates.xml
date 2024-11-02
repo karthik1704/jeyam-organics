@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="payment_cod_form">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Cash On Delivery</h3>
+                <p class="card-text">Pay with cash upon delivery of your order.</p>
+            </div>
+        </div>
+    </template>
+</odoo>

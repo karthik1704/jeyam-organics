@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- <record id="payment_provider_cod" model="payment.provider">
+            <field name="name">Cash On Delivery</field>
+            <field name="code">cod</field>
+            <field name="state">enabled</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="module_id" ref="base.module_payment_cod"/>
+            <field name="inline_form_view_id" ref="payment_cod.inline_form"/>
+            <field name="redirect_form_view_id" ref="payment_cod.redirect_form"/>
+        </record> -->
+        <record id="payment_provider_cod" model="payment.provider">
+            <field name="name">Cash On Delivery</field>
+            <field name="code">cod</field>
+            <field name="state">enabled</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="is_published" eval="True"/>
+            <field name="capture_manually" eval="False"/>
+            <field name="allow_tokenization" eval="False"/>
+            <field name="allow_express_checkout" eval="False"/>
+            <field name="require_currency_support" eval="False"/>
+        </record>
+
+
+        <!-- <record id="inline_form" model="ir.ui.view">
+            <field name="name">payment_cod.inline_form</field>
+            <field name="model">payment.provider</field>
+            <field name="arch" type="xml">
+                <form string="COD Inline Form">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="redirect_form" model="ir.ui.view">
+            <field name="name">payment_cod.redirect_form</field>
+            <field name="model">payment.provider</field>
+            <field name="arch" type="xml">
+                <form string="COD Redirect Form">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record> -->
+        
+        
+    </data>
+</odoo>
