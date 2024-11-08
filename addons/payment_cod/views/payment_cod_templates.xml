@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="payment_cod_form">
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">Cash On Delivery</h3>
-                <p class="card-text">Pay with cash upon delivery of your order.</p>
+    <template id="cod_form" name="Cash on Delivery Form">
+        <form method="post" action="/payment/cod/confirmation">
+            <div>
+                <p>Cash on Delivery - Payment will be collected upon delivery.</p>
             </div>
-        </div>
+            <input type="hidden" name="order_id" t-att-value="order_id" />  <!-- Optional: include
+            order ID if needed -->
+            <input type="hidden" name="amount" t-att-value="amount" />        <!-- Include amount for
+            reference -->
+            <input type="hidden" name="currency" t-att-value="currency" />    <!-- Include currency for
+            reference -->
+            <div>
+                <button type="submit" class="btn btn-primary">Confirm COD Payment</button>
+            </div>
+        </form>
     </template>
+
+    <template id="redirect_form">
+        <form t-att-action="/payment/cod/confirmation" method="get" />
+    </template>
+
 </odoo>

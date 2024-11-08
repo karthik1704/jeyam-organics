@@ -20,10 +20,12 @@
             <field name="allow_tokenization" eval="False"/>
             <field name="allow_express_checkout" eval="False"/>
             <field name="require_currency_support" eval="False"/>
+            <field name="inline_form_view_id" ref="payment_cod.inline_form"/>
+            <field name="redirect_form_view_id" ref="payment_cod.redirect_form"/>
         </record>
 
 
-        <!-- <record id="inline_form" model="ir.ui.view">
+        <record id="inline_form" model="ir.ui.view">
             <field name="name">payment_cod.inline_form</field>
             <field name="model">payment.provider</field>
             <field name="arch" type="xml">
@@ -45,7 +47,7 @@
                     </group>
                 </form>
             </field>
-        </record> -->
+        </record>
         
         
     </data>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Define a manual payment provider in another module (e.g., payment_manual) -->
+        <record id="payment_provider_cod.custom_cod" model="payment.provider">
+            <field name="name">Cash on Delivery</field>
+            <field name="provider">manual</field>
+            <field name="cod_method" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

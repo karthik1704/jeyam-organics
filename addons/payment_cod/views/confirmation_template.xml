@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="confirmation_template" name="COD Confirmation">
+        <h2>Thank You!</h2>
+        <p>Your order has been placed successfully with Cash on Delivery.</p>
+        <p>Order Reference: <strong t-esc="transaction.reference"/></p>
+        <p>Amount: <strong t-esc="transaction.amount"></strong> <strong t-esc="transaction.currency_id.name"></strong></p>
+        <p>Payment Status: <strong t-esc="transaction.state"></strong></p>
+        <a href="/shop" class="btn btn-secondary">Continue Shopping</a>
+    </template>
+</odoo>

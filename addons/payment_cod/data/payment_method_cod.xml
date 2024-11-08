@@ -1,0 +1,22 @@
+<odoo>
+    <record id="payment_method_cod" model="payment.method">
+        <field name="name">Cash on Delivery</field>
+        <field name="code">cod</field>
+        <!-- <field name="inline_form_view_id" ref="payment_cod.inline_form"/> -->
+        <!-- <field name="redirect_form_view_id" ref="redirect_form"/> -->
+    </record>
+
+      <record id="redirect_form" model="ir.ui.view">
+            <field name="name">payment_cod.redirect_form</field>
+            <field name="model">payment.provider</field>
+            <field name="arch" type="xml">
+                <form string="COD Redirect Form">
+                    <group>
+                        <field name="name"/>
+                        <field name="amount"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+</odoo>
