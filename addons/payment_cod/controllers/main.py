@@ -96,7 +96,9 @@ class PaymentController(http.Controller):
 
         # Create the transaction
         transaction = request.env['payment.transaction'].create(transaction_vals)
-
+        request.env['payment.transaction'].sudo()._send_cod_confirmation()
+        order.action_confirm()  # Confirm the sale order
+        # order._create_invoice()
         # Optionally, update order status to reflect COD status
         # order.write({'state': 'to_invoice'})  # Adjust to fit your workflow
 
