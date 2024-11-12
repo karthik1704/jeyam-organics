@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="confirmation_template" name="COD Confirmation">
-        <h2>Thank You!</h2>
-        <p>Your order has been placed successfully with Cash on Delivery.</p>
-        <p>Order Reference: <strong t-esc="transaction.reference"/></p>
-        <p>Amount: <strong t-esc="transaction.amount"></strong> <strong t-esc="transaction.currency_id.name"></strong></p>
-        <p>Payment Status: <strong t-esc="transaction.state"></strong></p>
-        <a href="/shop" class="btn btn-secondary">Continue Shopping</a>
+    <!-- Custom Payment Status Template -->
+    <template id="payment_cod.payment_status" inherit_id="payment.payment_status">
+        <xpath expr="//div[@name='o_payment_status_content']" position="replace">
+            <!-- Custom Content to Replace Original Payment Status -->
+            <div class="custom-payment-status text-center py-5">
+                <h2 class="text-success">You Ordered Successfully</h2>
+                <p class="lead">Thank you for your order. We will contact you shortly for payment.</p>
+                
+                <!-- Dynamic Status Message Based on Payment Status -->
+                <!-- <div class="mt-4">
+                    <t t-if="payment_status == 'done'">
+                        <p class="text-success">Your payment was successfully processed!</p>
+                    </t>
+                    <t t-if="payment_status == 'pending'">
+                        <p class="text-warning">We are awaiting your payment. Please follow the instructions sent to your email.</p>
+                    </t>
+                    <t t-if="payment_status == 'failed'">
+                        <p class="text-danger">Unfortunately, your payment failed. Please try again or contact support.</p>
+                    </t>
+                </div> -->
+                
+                <!-- Optional: Add a Back to Home or Retry Button -->
+                <div class="mt-5">
+                    <a href="/" class="btn btn-primary">Back to Home</a>
+                </div>
+            </div>
+        </xpath>
     </template>
 </odoo>
