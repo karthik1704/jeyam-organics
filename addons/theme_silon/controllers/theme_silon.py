@@ -35,14 +35,28 @@ class WebsiteProduct(http.Controller):
         product_id = silon_configuration.featured_product_ids
         rating = request.website.viewref('website_sale.product_comment').active
         res = {'products': []}
+        # for product in product_id:
+        #     combination_info = product._get_combination_info_variant()
+        #     res_product = product.read(['id', 'name', 'website_url',
+        #                                 'rating_avg', 'rating_count'])[0]
+        #     res_product['ratings'] = round(res_product['rating_avg'], 2)
+        #     res_product['rating'] = rating
+        #     res_product.update(combination_info)
+        #     res['products'].append(res_product)
         for product in product_id:
+            # Get basic product info without elevated permissions
             combination_info = product._get_combination_info_variant()
-            res_product = product.read(['id', 'name', 'website_url',
-                                        'rating_avg', 'rating_count'])[0]
+            res_product = product.read(['id', 'name', 'website_url'])[0]
+            
+            # Get rating info with elevated permissions
+            rating_data = product.sudo().read(['rating_avg', 'rating_count'])[0]
+            res_product.update(rating_data)
+            
             res_product['ratings'] = round(res_product['rating_avg'], 2)
             res_product['rating'] = rating
             res_product.update(combination_info)
             res['products'].append(res_product)
+
         products = res['products']
         values = {'products': products}
         response = http.Response(

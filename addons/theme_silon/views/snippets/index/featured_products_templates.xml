@@ -20,7 +20,7 @@
                     </section>
                 </t>
                 <div class="f-product">
-                    <div class="row">
+                    <div class="row mt-8 gy-3">
                         <t t-foreach="products" t-as="product_id">
                             <t t-set="product_tmpl_id"
                                t-value="request.env['product.template'].search([('id','=',product_id['product_template_id'])])"/>
@@ -50,7 +50,7 @@
                                         <div class="product__image">
                                             <img t-attf-src="/web/image?model=product.product&amp;field=image_1920&amp;id=#{product_id['id']}"
                                                  class="img img-fluid"
-                                                 style="padding: 0px; margin: 0px; width:auto; max-height: -webkit-fill-available; height:auto; position:relative;"/>
+                                                 style="padding: 0px; margin: 0px; width:auto; max-height: -webkit-fill-available; height:100%; position:relative;"/>
                                         </div>
                                         <div class="product-details">
                                             <div class="product__title">

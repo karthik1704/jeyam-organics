@@ -47,8 +47,8 @@
     <!--  To inherit header cart button  -->
     <template id="silon_cart" inherit_id="website_sale.header_cart_link">
         <xpath expr="//i[@t-if='_icon']" position="replace">
-            <i t-if="_icon" class="icons-nav right">
-                <img src="/theme_silon/static/src/img/icons/shopping-cart (1).svg" />
+            <i t-if="_icon" class="icons-nav right d-inline-block d-sm-block">
+                <img src="/theme_silon/static/src/img/icons/shopping-cart (1).svg" style="width: 24px; height: 24px;" />
             </i>
         </xpath>
     </template>
