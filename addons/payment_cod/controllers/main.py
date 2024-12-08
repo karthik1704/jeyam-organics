@@ -94,8 +94,25 @@ class PaymentController(http.Controller):
             'state': 'done',  # Set to pending for manual processing
         }
 
+        # Find existing transaction (add your search criteria)
+        existing_transaction = request.env['payment.transaction'].sudo().search([
+            ('reference', '=', ref),
+            # Add other relevant search criteria
+        ], limit=1)
+
+        if existing_transaction:
+            # Update existing transaction
+            existing_transaction.write(transaction_vals)
+            transaction = existing_transaction
+        else:
+            # Create new if not found
+            transaction = request.env['payment.transaction'].sudo().create(transaction_vals)
+            
         # Create the transaction
-        transaction = request.env['payment.transaction'].sudo().create(transaction_vals)
+        # transaction = request.env['payment.transaction'].sudo().create(transaction_vals)
+        
+        
+        
         request.env['payment.transaction'].sudo()._send_cod_confirmation()
         order.sudo().action_confirm()  # Confirm the sale order
         # order._create_invoice()

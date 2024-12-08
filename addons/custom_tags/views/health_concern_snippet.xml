@@ -38,16 +38,5 @@
       </section>
     </xpath>
   </template>
-  <!-- Alternative inheritance method -->
-    <template id="health_concern_snippet_alt" 
-              name="Health Concern Snippet Alternative" 
-              inherit_id="website.snippets_options" 
-              primary="True">
-        <xpath expr="//div[@data-snippet-option-id='custom_code']" position="after">
-            <div data-snippet-option-id="health_concern_block"
-                 data-selector=".health_concern_block">
-                <div>Health Concerns Snippet</div>
-            </div>
-        </xpath>
-    </template>
+ 
 </odoo>

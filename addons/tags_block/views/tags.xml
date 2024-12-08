@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="tags_snippet" name="Tags Snippet">
+        <section class="oe_snippet_body health_concern_block" id="snippet_selector">
+            <div class="container">
+                <h2 class="text-center">Shop by Health Concerns</h2>
+                <div class="row">
+                    <t t-foreach="request.env['product.tag'].search([])[:12]" t-as="tag">
+                        <div class="col-md-3 col-sm-6 text-center mb-4">
+                            <a t-att-href="'/shop?tags=' + str(tag.id)" class="health-card-link">
+                                <div class="health-card">
+                                    <!-- Display tag image or fallback to default -->
+                                    <t t-if="tag.image">
+                                        <img
+                                            t-att-src="'data:image/png;base64,' + tag.image.decode('utf-8')"
+                                            t-att-alt="tag.name" class="icon-img" />
+                                    </t>
+                                    <t t-elif="not tag.image">
+                                        <img src="/custom_tags/static/src/img/default.jpg"
+                                            t-att-alt="tag.name"
+                                            class="icon-img" />
+                                    </t>
+                                    <h4 class="" t-esc="tag.name"></h4>
+                                </div>
+                            </a>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
