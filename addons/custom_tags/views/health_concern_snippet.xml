@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <template id="health_concern_snippet" name="Health Concern Snippet" inherit_id="website.snippets" primary="True">
+    <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]"  position="inside">
+      <!-- Custom Featured Products Block -->
+      <div>
+        <div class="oe_snippet_thumbnail">
+          <!-- <img class="oe_snippet_thumbnail_img"
+            src="//static/src/img/default.jpg" /> -->
+          <span class="oe_snippet_thumbnail_title">Tags</span>
+        </div>
+      </div>
+
+      <section class="oe_snippet_body health_concern_block">
+        <div class="container">
+          <h2 class="text-center">Shop by Health Concerns</h2>
+          <div class="row">
+            <t t-foreach="request.env['product.tag'].search([])[:12]" t-as="tag">
+              <div class="col-md-3 col-sm-6 text-center mb-4">
+                <a t-att-href="'/shop?tags=' + str(tag.id)" class="health-card-link">
+                  <div class="health-card">
+                    <!-- Display tag image or fallback to default -->
+                    <t t-if="tag.image">
+                      <img t-att-src="'data:image/png;base64,' + tag.image.decode('utf-8')"
+                        t-att-alt="tag.name" class="icon-img" />
+                    </t>
+                    <t t-elif="not tag.image">
+                      <img src="/custom_tags/static/src/img/default.jpg" t-att-alt="tag.name"
+                        class="icon-img" />
+                    </t>
+                    <h4 class="" t-esc="tag.name"></h4>
+                  </div>
+                </a>
+              </div>
+            </t>
+          </div>
+        </div>
+      </section>
+    </xpath>
+  </template>
+  <!-- Alternative inheritance method -->
+    <template id="health_concern_snippet_alt" 
+              name="Health Concern Snippet Alternative" 
+              inherit_id="website.snippets_options" 
+              primary="True">
+        <xpath expr="//div[@data-snippet-option-id='custom_code']" position="after">
+            <div data-snippet-option-id="health_concern_block"
+                 data-selector=".health_concern_block">
+                <div>Health Concerns Snippet</div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

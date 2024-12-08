@@ -1,0 +1,23 @@
+<odoo>
+  <!-- <template id="health_concern_snippet_options" inherit_id="website.snippets">
+    <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+      <t t-call="website.snippet_options">
+        <div class="oe_snippet" data-snippet="custom_tags.health_concern_snippet"
+          data-name="Health Concerns">
+          <section>
+            <t t-call="custom_tags.health_concern_snippet" />
+          </section>
+        </div>
+      </t>
+    </xpath>
+  </template> -->
+
+  <template id="health_concern_snippet_options" inherit_id="website.snippets"
+    name="Health Concern Snippet">
+    <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+      <t t-snippet="custom_tags.health_concern_snippet"
+        t-thumbnail="/custom_tags/static/src/img/default.jpg" />
+    </xpath>
+  </template>
+
+</odoo>
