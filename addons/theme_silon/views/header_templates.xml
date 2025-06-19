@@ -5,16 +5,20 @@
         <xpath expr="//header" position="before">
             <div class="container">
                 <div class="row header-top ">
-                    <div class="col">
+                    <div class="col ">
                         <div class="header-top-wrap ">
                             <div class="header-top-left">
-                                <div class="info d-flex">PHONE: <a href="#"
-                                        t-att-value="res_company.phone">
-                                        <t t-esc="res_company.phone" />
-                                    </a>&#160;&#160;
-                                    EMAIL: <a href="mailto:res_company.email ">
-                                        <t t-esc="res_company.email" />
-                                    </a>
+                                <div class="info d-flex flex-column flex-sm-row ">
+                                    <span class="me-sm-3 mb-1 mb-sm-0">
+                                        PHONE: <a href="#" t-att-value="res_company.phone">
+                                            <t t-esc="res_company.phone" />
+                                        </a>
+                                    </span>
+                                    <span>
+                                        EMAIL: <a href="mailto:res_company.email">
+                                            <t t-esc="res_company.email" />
+                                        </a>
+                                    </span>
                                 </div>
                             </div>
                             <div class="header-top-right">
@@ -55,7 +59,7 @@
     <!--  To inherit wishlist button  -->
     <template id="silon_wishlist" inherit_id="website_sale_wishlist.header_wishlist_link">
         <xpath expr="//i[@t-if='_icon']" position="replace">
-            <i t-if="_icon" class="icons-nav right">
+            <i t-if="_icon" class="icons-nav right d-inline-block d-sm-block">
                 <img src="/theme_silon/static/src/img/icons/heart.svg" />
             </i>
         </xpath>
